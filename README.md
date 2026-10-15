@@ -1,36 +1,65 @@
-# Sleep-disorder-Classification
+# Sleep-Disorder
 
-A hierarchical approach for the diagnosis of sleep disorders and cyclic alternating pattern (CAP) sleep phases using 1-dimensional convolutional recurrent neural network (CRNN). The hierarcy has three stages, first stage classifies input signal into healthy and unhealthy. The next stage identifies sleep disorders from unhealthy input signals namely insomnia, nfle, narcolepsy, rbd and plm. The third stage identifies CAP phase of input signal. Proposed models uses single-channel standardized electroencephalogram (EEG) recordings provided by the CAP sleep database. No manual feature extraction or pre/post processing is required making the approach completely autonomous. The healthy-unhealthy classification and disease classification have been studied using dataset of both phases (A & B), using dataset of only phase A, using dataset of only phase B seperately.
+Sleep Disorder Prediction using Deep Learning.
 
-## Instructions
-### Dataset preparation
-* Follow instructions of our repository [CAP-Phase-Detection](https://github.com/Shrutii07/CAP-Phase-Detection) to create balanced CAP dataset for healthy as well as disordered subjects. You can download this data directly from [here](https://drive.google.com/drive/folders/1-DdLogc2Z7ck7KUrD6pmLUJdJ0QiPrqq?usp=sharing).
-* Run the colab file [Dataset_preparation_disease_classification](https://github.com/Shrutii07/Sleep-disorder-Classification/blob/main/Dataset_preparation_disease_classification.ipynb). Give proper path of previously downloaded dataset and for folder in which dataset is to be strored.
-* You can directly download dataset for healthy-unhealthy classification from [here](https://drive.google.com/drive/folders/1ai3kodudyjBxSH4zHm5dwUSmWSDUL2eB?usp=sharing) and dataset of disease classification from [here](https://drive.google.com/drive/folders/1tQHZx3aY3X9Us2UIJBVAjlLs15oIcgEF?usp=sharing)
-### Model training
-* Run the colab file [Healthy_Unhealthy_Classification.ipynb](https://github.com/Shrutii07/Sleep-disorder-Classification/blob/main/Healthy_Unhealthy_Classification.ipynb) for training model for first stage of hierarcy using dataset of both phases, phase A and phase B and observe result.
-* You can observe results of our proposed models by downloadig our trained models, history and test datasets from [here](https://drive.google.com/drive/folders/1hYLAgwwlan1TR0Tfr66e19rsei0sgo44?usp=sharing). 
-* Run the colab file [Disease_Classification.ipynb](https://github.com/Shrutii07/Sleep-disorder-Classification/blob/main/Disease_Classification.ipynb) for training model for second stage of hierarcy using dataset of both phases, phase A and phase B and observe result.
-* You can observe results of our proposed models by downloadig our trained models and datasets from [here](https://drive.google.com/drive/folders/1tQHZx3aY3X9Us2UIJBVAjlLs15oIcgEF?usp=sharing).
-* You can refer the colab file [Hyperparameter_optimization.ipynb](https://github.com/Shrutii07/Sleep-disorder-Classification/blob/main/Hyperparameter_optimization.ipynb) for optimizing the hyperparameters of models.
-### GUI
-* Download the folder [GUI](https://github.com/Shrutii07/Sleep-disorder-Classification/tree/main/GUI) to your local pc.
-* Run the [run.py](https://github.com/Shrutii07/Sleep-disorder-Classification/blob/main/GUI/run.py) file using python interpreter.
-* Open the generated link in any browser.
-* Give the test samples provided in the folder [test](https://github.com/Shrutii07/Sleep-disorder-Classification/tree/main/GUI/test) or any C4A1 channel signal of 2s duration of 512Hz in csv format to see the result.
+## 1. Install Python
+Download Python from the official website:
+https://www.python.org/downloads/
 
-The sample output of GUI screen can be seen below
-![](/GUI/gui_ss.jpeg)
+During installation, select **Add Python to PATH**.
 
-This repo contains the implementation of our paper, [A Hierarchical Approach for the Diagnosis of Sleep Disorders Using Convolutional Recurrent Neural Network](https://doi.org/10.1109/ACCESS.2023.3330901). If you find this code useful in your research, please consider citing:
+Verify the installation:
+`ash
+python --version
+`
 
-    @ARTICLE{10310136,
-      author={Wadichar, Aditya and Murarka, Shruti and Shah, Dhruvi and Bhurane, Ankit and Sharma, Manish and Mir, Hasan S. and Acharya, U. Rajendra},
-      journal={IEEE Access}, 
-      title={A Hierarchical Approach for the Diagnosis of Sleep Disorders Using Convolutional Recurrent Neural Network}, 
-      year={2023},
-      volume={11},
-      number={},
-      pages={125244-125255},
-      keywords={Computer architecture;Logic gates;Microprocessors;Recurrent neural networks;Kernel;Electroencephalography;Convolutional neural networks;Long short term memory;Sleep apnea;Medical conditions;Convolutional neural network (CNN);cyclic alternating patterns (CAP);deep learning;electroencephalogram (EEG);long short-term memory (LSTM);sleep disorders classification},
-      doi={10.1109/ACCESS.2023.3330901}}
+## 2. Install Required Packages
+`ash
+python -m pip install gradio mne numpy pandas
+`
+
+## 3. Upgrade pip
+`ash
+python -m pip install --upgrade pip
+`
+
+## 4. Install Legacy Keras Compatibility
+`ash
+python -m pip install tf-keras==2.20.1
+`
+
+## 5. Check Dependency Conflicts
+`ash
+python -m pip check
+`
+
+## 6. Display Installed Packages
+`ash
+python -m pip list
+`
+
+## 7. Check TensorFlow and Keras Versions
+`ash
+python -c "import tensorflow as tf; import tf_keras; print('TensorFlow:', tf.__version__); print('tf_keras:', tf_keras.__version__)"
+`
+
+## 8. Test the Saved Model
+Run this from the project root:
+`ash
+python -c "import tf_keras; m=tf_keras.models.load_model('GUI/healthy_cap_new.h5', compile=False); print('Model loaded successfully')"
+`
+
+## 9. Run the DeepNap Application
+`ash
+python GUI/gradio_app.py
+`
+
+Open the local URL displayed in the terminal in your browser.
+
+## Project Files
+- GUI/ — training scripts, saved models, evaluation results, and the Gradio application.
+- Large datasets are stored separately and will be shared through an external link.
+
+## Dataset
+The large datasets are not included in this repository. A Google Drive link will be added here.
+

@@ -2,6 +2,9 @@ tf_env/
 venv/
 .venv/
 __pycache__/
-*.pyc
+*.py[codz]
+*.py.class
 .gradio/
 .ipynb_checkpoints/
+dataa/
+.env
