@@ -57,9 +57,20 @@ python GUI/gradio_app.py
 Open the local URL displayed in the terminal in your browser.
 
 ## Project Files
-- GUI/ — training scripts, saved models, evaluation results, and the Gradio application.
+- GUI/ â€” training scripts, saved models, evaluation results, and the Gradio application.
 - Large datasets are stored separately and will be shared through an external link.
 
 ## Dataset
 The large datasets are not included in this repository. A Google Drive link will be added here.
 
+
+In sleep-disorder-prediction folder create data folder and place the datasets
+
+Balanced and Unbalanced:
+https://www.kaggle.com/datasets/shrutimurarka/cap-sleep-unbalanced-dataset?select=Balanced+Data
+
+
+Healthy and unhealthy: https://drive.google.com/drive/folders/1ai3kodudyjBxSH4zHm5dwUSmWSDUL2eB
+
+Disorder phases
+https://drive.google.com/drive/folders/1tQHZx3aY3X9Us2UIJBVAjlLs15oIcgEF
