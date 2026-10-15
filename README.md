@@ -51,7 +51,7 @@ python -c "import tf_keras; m=tf_keras.models.load_model('GUI/healthy_cap_new.h5
 
 ## 9. Run the DeepNap Application
 `ash
-python GUI/gradio_app.py
+python gradio_app.py
 `
 
 Open the local URL displayed in the terminal in your browser.
